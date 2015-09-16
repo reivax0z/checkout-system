@@ -5,6 +5,7 @@ import java.util.List;
 
 import DiUSShopping.CheckoutSystem.model.Item;
 import DiUSShopping.CheckoutSystem.model.Price;
+import DiUSShopping.CheckoutSystem.util.NonRecognizedItemException;
 import static DiUSShopping.CheckoutSystem.model.Catalogue.getCatalogue;
 
 public class FreeBundleOffer extends AbstractOffer implements Offer {
@@ -32,7 +33,11 @@ public class FreeBundleOffer extends AbstractOffer implements Offer {
 		
 		// adding missing items for free
 		for(int i=alreadyBundledItems.size(); i<discountedItems.size(); i++) {
-			items.add(getCatalogue().createItem(freeProductBundled));
+			try {
+				items.add(getCatalogue().createItem(freeProductBundled));
+			} catch (NonRecognizedItemException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

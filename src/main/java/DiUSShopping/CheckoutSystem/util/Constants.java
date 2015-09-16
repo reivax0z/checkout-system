@@ -1,7 +1,5 @@
 package DiUSShopping.CheckoutSystem.util;
 
-import DiUSShopping.CheckoutSystem.model.Price;
-
 public class Constants {
 	
 	public static final String IPD = "ipd";
