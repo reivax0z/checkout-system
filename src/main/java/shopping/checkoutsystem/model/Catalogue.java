@@ -1,7 +1,7 @@
-package DiUSShopping.CheckoutSystem.model;
+package shopping.checkoutsystem.model;
 
-import DiUSShopping.CheckoutSystem.util.NonRecognizedItemException;
-import static DiUSShopping.CheckoutSystem.util.Constants.*;
+import shopping.checkoutsystem.util.NonRecognizedItemException;
+import static shopping.checkoutsystem.util.Constants.*;
 
 public class Catalogue {
 

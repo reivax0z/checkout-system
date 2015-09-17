@@ -12,6 +12,15 @@ Separated the code into:
 The test suite is located in the test package.
 
 To deploy the program:
-maven clean install
+mvn clean install
 
 (this will compile the code, run the tests and enter in the console interactive mode)
+
+Some limitations and ways to improve:
+- Tests have been developed quickly and therefore cover the integration part (the whole process).
+- More unit tests should be developed for each scenario and on a class by class basis.
+- No real database modelling, just using POJO for quick solution development.
+- No interface, and minimal command based interaction.
+- Also needs to better handle Exceptions (either from the user part or inside the system).
+- The catalogue is unlimited in terms of items being bought.
+- No limit on the Cart size.

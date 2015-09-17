@@ -1,8 +1,8 @@
-package DiUSShopping.CheckoutSystem.checkout;
+package shopping.checkoutsystem.checkout;
 
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
+import shopping.checkoutsystem.model.Item;
 
 public interface Rules {
 	void computeDiscounts(List<Item> items);

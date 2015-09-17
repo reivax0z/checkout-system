@@ -1,4 +1,4 @@
-package DiUSShopping.CheckoutSystem.model;
+package shopping.checkoutsystem.model;
 
 public class Item {
 	String sku;
@@ -36,5 +36,10 @@ public class Item {
 	    	return this.sku.equals(((Item) other).getSku());
 	    }
 	    return false;
+	}
+	@Override
+	public String toString() {
+		return "Item [sku=" + sku + ", product=" + product + ", unitPrice="
+				+ unitPrice + "]";
 	}
 }

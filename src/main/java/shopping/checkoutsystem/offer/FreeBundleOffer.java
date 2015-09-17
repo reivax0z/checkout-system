@@ -1,12 +1,13 @@
-package DiUSShopping.CheckoutSystem.offer;
+package shopping.checkoutsystem.offer;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
-import DiUSShopping.CheckoutSystem.model.Price;
-import DiUSShopping.CheckoutSystem.util.NonRecognizedItemException;
-import static DiUSShopping.CheckoutSystem.model.Catalogue.getCatalogue;
+import shopping.checkoutsystem.model.Item;
+import shopping.checkoutsystem.model.Price;
+import shopping.checkoutsystem.util.NonRecognizedItemException;
+import static shopping.checkoutsystem.model.Catalogue.getCatalogue;
 
 public class FreeBundleOffer extends AbstractOffer implements Offer {
 

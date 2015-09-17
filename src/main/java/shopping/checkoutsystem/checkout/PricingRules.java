@@ -1,16 +1,16 @@
-package DiUSShopping.CheckoutSystem.checkout;
+package shopping.checkoutsystem.checkout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
-import DiUSShopping.CheckoutSystem.model.Price;
-import DiUSShopping.CheckoutSystem.model.Product;
-import DiUSShopping.CheckoutSystem.offer.BulkDiscountOffer;
-import DiUSShopping.CheckoutSystem.offer.FreeBundleOffer;
-import DiUSShopping.CheckoutSystem.offer.GetOneFreeOffer;
-import DiUSShopping.CheckoutSystem.offer.Offer;
-import static DiUSShopping.CheckoutSystem.util.Constants.*;
+import shopping.checkoutsystem.model.Item;
+import shopping.checkoutsystem.model.Price;
+import shopping.checkoutsystem.model.Product;
+import shopping.checkoutsystem.offer.BulkDiscountOffer;
+import shopping.checkoutsystem.offer.FreeBundleOffer;
+import shopping.checkoutsystem.offer.GetOneFreeOffer;
+import shopping.checkoutsystem.offer.Offer;
+import static shopping.checkoutsystem.util.Constants.*;
 
 
 public class PricingRules implements Rules {
@@ -20,10 +20,10 @@ public class PricingRules implements Rules {
 	
 	private PricingRules() {
 		offers = new ArrayList<Offer>();
+		initialize();
 	}
 	
 	public static PricingRules getInstance() {
-		instance.initialize();
 		return instance;
 	}
 

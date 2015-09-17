@@ -1,10 +1,12 @@
-package DiUSShopping.CheckoutSystem.checkout;
+package shopping.checkoutsystem.checkout;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
-import DiUSShopping.CheckoutSystem.model.Price;
+import shopping.checkoutsystem.model.Item;
+import shopping.checkoutsystem.model.Price;
 
 public class Checkout implements CheckoutService {
 
@@ -29,14 +31,15 @@ public class Checkout implements CheckoutService {
 	}
 	
 	public void total() {
+		System.out.println("Content of the cart: " + cart);
 		computeCartTotal();
-		System.out.println("Total before discount = " + totalPrice);
+		System.out.println("Total before discount = " + getTotalPrice());
 		pricingRules.computeDiscounts(cart);
 		computeCartTotal();
-		System.out.println("Total after discount = " + totalPrice);
+		System.out.println("Total after discount = " + getTotalPrice());
 	}
 
-	public Price getTotalPrice() {
-		return totalPrice;
+	public double getTotalPrice() {
+		return new BigDecimal(totalPrice.getAmount()).setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
 }

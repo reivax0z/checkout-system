@@ -1,9 +1,9 @@
-package DiUSShopping.CheckoutSystem.offer;
+package shopping.checkoutsystem.offer;
 
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
-import DiUSShopping.CheckoutSystem.model.Price;
+import shopping.checkoutsystem.model.Item;
+import shopping.checkoutsystem.model.Price;
 
 public class BulkDiscountOffer extends AbstractOffer implements Offer {
 

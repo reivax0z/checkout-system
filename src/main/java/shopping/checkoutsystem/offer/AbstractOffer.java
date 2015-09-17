@@ -1,9 +1,9 @@
-package DiUSShopping.CheckoutSystem.offer;
+package shopping.checkoutsystem.offer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import DiUSShopping.CheckoutSystem.model.Item;
+import shopping.checkoutsystem.model.Item;
 
 public abstract class AbstractOffer implements Offer {
 	

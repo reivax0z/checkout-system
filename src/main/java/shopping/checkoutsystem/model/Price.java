@@ -1,4 +1,4 @@
-package DiUSShopping.CheckoutSystem.model;
+package shopping.checkoutsystem.model;
 
 public class Price {
 	double amount;
@@ -17,7 +17,7 @@ public class Price {
 	}
 	
 	public void add(Price p) {
-		this.amount = this.amount + p.amount;
+		setAmount(this.amount + p.getAmount());
 	}
 
 	@Override
