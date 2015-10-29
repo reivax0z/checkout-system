@@ -4,8 +4,32 @@
 	<title>Spring MVC + AngularJS Demo</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 	<script src="./js/angular.js"></script>
+
+	<!-- CSS -->
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+			rel="stylesheet" type="text/css" />
+	<link href="./bootstrap-3.2.0/dist/css/bootstrap.css" rel="stylesheet">
+
+	<!-- BOOTSTRAP -->
+	<script type="text/javascript"
+			src="./bootstrap-3.2.0/dist/js/bootstrap.js"></script>
 </head>
 <body>
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-tags"></span> Online Shopping</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<p class="navbar-text navbar-right">Checkout Online System</p>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
 
 <h1>Spring MVC + AngularJS Demo</h1>
 
@@ -13,28 +37,51 @@
 
 	<h2>Content of the Catalogue:</h2>
 
-	<div data-ng-repeat="item in items">
-			<form novalidate>
-				<p>{{item.product.name}} - ${{item.unitPrice.amount}}</p>
-				<input type="submit" ng-click="add(item.sku)" value="Add to Cart" />
-			</form>
-		<hr>
-	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Unit Price</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-ng-repeat="item in items">
+				<form novalidate>
+					<td>{{item.product.name}}</td>
+					<td>${{item.unitPrice.amount}}</td>
+					<td><input  class="btn btn-default" type="submit" ng-click="add(item.sku)" value="Add to Cart" /></td>
+				</form>
+			</tr>
+		</tbody>
+	</table>
 
 	<div ng-init="getCart()">
 		<h2>Cart</h2>
 
-		<p>Price of Cart (before discount): ${{cart.totalPriceBeforeDiscount}}</p>
-		<p>Price of Cart (after discount): ${{cart.totalPriceAfterDiscount}}</p>
-
-		<p>Content of the Cart:</p>
-		<ul>
-			<li data-ng-repeat="cartItem in cart.content">
-				<p>{{cartItem.product.name}} - ${{cartItem.unitPrice.amount}}</p>
-			</li>
-		</ul>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>Product</th>
+				<th>Unit Price</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-ng-repeat="cartItem in cart.content">
+				<td>{{cartItem.product.name}}</td>
+				<td>${{cartItem.unitPrice.amount}}</td>
+			</tr>
+			</tbody>
+			<tfoot>
+			<tr>
+				<td><strong>Total After Discount</strong></td>
+				<td><strong>${{cart.totalPriceAfterDiscount}}</strong></td>
+			</tr>
+			</tfoot>
+		</table>
 	</div>
 
+</div>
 </div>
 </body>
 </html>
