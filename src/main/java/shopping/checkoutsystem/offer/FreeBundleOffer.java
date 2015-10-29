@@ -32,14 +32,14 @@ public class FreeBundleOffer extends AbstractOffer implements Offer {
 			items.addAll(alreadyBundledItems);
 		}
 		
-		// adding missing items for free
+		/*// adding missing items for free
 		for(int i=alreadyBundledItems.size(); i<discountedItems.size(); i++) {
 			try {
 				items.add(getCatalogue().createItem(freeProductBundled));
 			} catch (NonRecognizedItemException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 	}
 
 	@Override

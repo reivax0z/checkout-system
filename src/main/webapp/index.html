@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<title>Spring MVC + AngularJS Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="./js/angular.js"></script>
+</head>
+<body>
+
+<h1>Spring MVC + AngularJS Demo</h1>
+
+<div ng-controller="Items">
+
+	<h2>Content of the Catalogue:</h2>
+
+	<div data-ng-repeat="item in items">
+			<form novalidate>
+				<p>{{item.product.name}} - ${{item.unitPrice.amount}}</p>
+				<input type="submit" ng-click="add(item.sku)" value="Add to Cart" />
+			</form>
+		<hr>
+	</div>
+
+	<div ng-init="getCart()">
+		<h2>Cart</h2>
+
+		<p>Price of Cart (before discount): ${{cart.totalPriceBeforeDiscount}}</p>
+		<p>Price of Cart (after discount): ${{cart.totalPriceAfterDiscount}}</p>
+
+		<p>Content of the Cart:</p>
+		<ul>
+			<li data-ng-repeat="cartItem in cart.content">
+				<p>{{cartItem.product.name}} - ${{cartItem.unitPrice.amount}}</p>
+			</li>
+		</ul>
+	</div>
+
+</div>
+</body>
+</html>
