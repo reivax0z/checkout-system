@@ -1,14 +1,23 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
-	<title>Spring MVC + AngularJS Demo</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-	<script src="./js/angular.js"></script>
+	<title>Online Shopping Checkout System</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-resource.js"></script>
+	<script src="./js/myApp.js"></script>
+	<script src="./js/services.js"></script>
+	<script src="./js/controllers.js"></script>
 
 	<!-- CSS -->
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 			rel="stylesheet" type="text/css" />
 	<link href="./bootstrap-3.2.0/dist/css/bootstrap.css" rel="stylesheet">
+
+	<!-- JQUERY -->
+	<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+			src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.js"></script>
 
 	<!-- BOOTSTRAP -->
 	<script type="text/javascript"
@@ -23,7 +32,7 @@
 				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-tags"></span> Online Shopping</a>
 			</div>
 			<div class="collapse navbar-collapse">
-				<p class="navbar-text navbar-right">Checkout Online System</p>
+				<p class="navbar-text navbar-right">Checkout System</p>
 			</div>
 		</div>
 	</div>
@@ -31,9 +40,9 @@
 
 <div class="container">
 
-<h1>Spring MVC + AngularJS Demo</h1>
+<h1>Using Spring MVC + AngularJS</h1>
 
-<div ng-controller="Items">
+<div ng-controller="MainCtrl">
 
 	<h2>Content of the Catalogue:</h2>
 
@@ -46,17 +55,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr data-ng-repeat="item in items">
-				<form novalidate>
-					<td>{{item.product.name}}</td>
-					<td>${{item.unitPrice.amount}}</td>
-					<td><input  class="btn btn-default" type="submit" ng-click="add(item.sku)" value="Add to Cart" /></td>
-				</form>
+			<tr ng-repeat="item in items">
+				<td>{{item.product.name}}</td>
+				<td>${{item.unitPrice.amount}}</td>
+				<td><input  class="btn btn-default" type="submit" ng-click="add(item.sku)" value="Add to Cart" /></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<div ng-init="getCart()">
+	<div>
 		<h2>Cart</h2>
 
 		<table class="table table-striped">
@@ -64,21 +71,27 @@
 			<tr>
 				<th>Product</th>
 				<th>Unit Price</th>
+				<th>Action</th>
 			</tr>
 			</thead>
 			<tbody>
-			<tr data-ng-repeat="cartItem in cart.content">
+			<tr ng-repeat="cartItem in cart.content">
 				<td>{{cartItem.product.name}}</td>
 				<td>${{cartItem.unitPrice.amount}}</td>
+				<td><input  class="btn btn-default" type="submit" ng-click="remove(cartItem.id)" value="Remove from Cart" /></td>
 			</tr>
 			</tbody>
-			<tfoot>
-			<tr>
-				<td><strong>Total After Discount</strong></td>
-				<td><strong>${{cart.totalPriceAfterDiscount}}</strong></td>
-			</tr>
-			</tfoot>
 		</table>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Total After Discount</h3>
+			</div>
+			<div class="panel-body">
+				Your cart is worth <strong>${{cart.totalPriceAfterDiscount}}</strong> for <strong>{{cart.nbItems}}</strong> items
+			</div>
+		</div>
+		
 	</div>
 
 </div>

@@ -2,6 +2,7 @@ package shopping.checkoutsystem.model;
 
 public class Item {
 	String sku;
+	Integer id;
 	Product product;
 	Price unitPrice;
 	
@@ -28,6 +29,14 @@ public class Item {
 	}
 	public void setSku(String sku) {
 		this.sku = sku;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override
