@@ -1,12 +1,14 @@
 Simple application to checkout items for a store.
 
-Using Java 1.8 and Maven for compilation and running test suite.
+Using Java 1.8 and Maven/Gradle for compilation and running test suite.
 The main libraries used are:
 - JUnit for tests
 - Spring + Spring MVC
 - Fasterxml for JSON representation
 - AngularJS
-- Tomcat7 plugin
+- Swagger for Rest API documentation
+- Tomcat7 plugin (Maven)
+- Jetty plugin (Gradle)
 
 The interface shows a Catalogue content and the current state of the Cart.
 Users can add Items to the Cart and the total Price is automatically adjusted using the discount rules.
@@ -21,6 +23,10 @@ Separated the code into:
 
 The test suite is located in the test package.
 
+*****
+MAVEN
+*****
+
 To deploy the program:
 mvn clean install
 
@@ -28,6 +34,19 @@ mvn clean install
 
 To launch the app on a local server:
 mvn tomcat7:run
+
+******
+GRADLE
+******
+
+To launch the app on a local server:
+gradle jettyRun
+
+
+The app will be running on: http://localhost:8080/checkout-webapp
+The Swagger API documentation accessible on: http://localhost:8080/checkout-webapp/v2/api-docs
+The Swagger UI documentation accessible on: http://localhost:8080/checkout-webapp/swagger-ui.html
+
 
 Some limitations and ways to improve:
 - Tests have been developed quickly and therefore cover the integration part (the whole process).

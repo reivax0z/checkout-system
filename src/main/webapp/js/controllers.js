@@ -4,12 +4,12 @@ var app = angular.module('myApp.controllers', []);
 
 var baseUrl = 'http://localhost\\:8080/checkout-webapp/';
 
-app.controller('MainCtrl', ['$scope', 'CartDelete', 'CartAdd', 'CartList', 'ProductList',
+app.controller('MainCtrl', ['$scope', 'CartDelete', 'CartAdd', 'CartList', 'CatalogueList',
 
-    function ($scope, CartDelete, CartAdd, CartList, ProductList) {
+    function ($scope, CartDelete, CartAdd, CartList, CatalogueList) {
 
         // fetch catalogue
-        $scope.items = ProductList.get();
+        $scope.items = CatalogueList.get();
 
         // fetch cart
         $scope.cart = CartList.get();

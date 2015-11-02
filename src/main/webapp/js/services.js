@@ -34,8 +34,8 @@ services.factory('CartList', function ($resource) {
        });
 });
 
-services.factory('ProductList', function ($resource) {
-    return $resource(baseUrl + 'products/', {},
+services.factory('CatalogueList', function ($resource) {
+    return $resource(baseUrl + 'catalogue/', {},
        {
            get:
            {
