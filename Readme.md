@@ -15,7 +15,7 @@ The main libraries used are:
 
 Introduction
 ---
-The interface shows a Catalogue content and the current state of the Cart.
+The interface shows a Stock content and the current state of the Cart.
 Users can add Items to the Cart and the total Price is automatically adjusted using the discount rules.
 This is done by exposing REST services accessed directly through AngularJS.
 
@@ -23,7 +23,7 @@ Architecture
 ---
 Separated the code into:
 - checkout (containing the checkout service and the pricing rules / engine)
-- model (containing the Catalogue and its Items as well as the Cart)
+- model (containing the Stock and its Items as well as the Cart)
 - offer (various methods of giving discounts to customers)
 - util (constants and exceptions)
 - controller (containing the REST exposed services)
@@ -36,17 +36,17 @@ Installation and Deployment
 **MAVEN**
 
 To deploy the program:
-  mvn clean install
+ mvn clean install
 
 (this will compile the code and run the tests)
 
 To launch the app on a local server:
-  mvn tomcat7:run
+ mvn tomcat7:run
 
 **GRADLE**
 
 To launch the app on a local server:
-  gradle jettyRun
+ gradle jettyRun
 
 
 Accessible URLs

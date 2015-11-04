@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+group = 'Shopping'
+version = '0.0.1-SNAPSHOT'
+
+description = """CheckoutSystem"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    springVersion = '4.2.2.RELEASE'
+    jsonJacksonVersion = '2.6.3'
+    swaggerVersion = '2.2.2'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version:springVersion
+    compile group: 'org.springframework', name: 'spring-web', version:springVersion
+    compile group: 'org.springframework', name: 'spring-webmvc', version:springVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:jsonJacksonVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:jsonJacksonVersion
+    compile group: 'io.springfox', name: 'springfox-swagger2', version:swaggerVersion
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version:swaggerVersion
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
+
+jettyRun.contextPath = 'checkout-webapp'
